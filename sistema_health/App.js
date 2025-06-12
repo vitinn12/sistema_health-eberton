@@ -10,7 +10,7 @@ function LoginScreen({ navigation }) {
   const [login, setLogin] = useState('');
   const [senha, setSenha] = useState('');
 
-  const handleLogin = () => {
+  const Verificacao = () => {
     if (login === 'admin' && senha === '123456') {
       navigation.navigate('Usuarios');
     } else {
@@ -36,7 +36,7 @@ function LoginScreen({ navigation }) {
           onChangeText={setSenha}
           secureTextEntry
         />
-        <Button title="Entrar" onPress={handleLogin} />
+        <Button title="Entrar" onPress={Verificacao} />
       </main>
 
     </View>
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     gap: 10,
-    backgroundColor
+    backgroundColor : '#f0f0f0',
   },
   input: {
     height: 40,
