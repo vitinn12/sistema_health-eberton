@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import Usuarios from './comps/Usuarios'; // Certifique-se que o caminho está correto
+import Area_user from './comps/Area_user';
 
 const Stack = createNativeStackNavigator();
 
@@ -12,7 +13,7 @@ function LoginScreen({ navigation }) {
 
   const Verificacao = () => {
     if (login === 'admin' && senha === '123456') {
-      navigation.navigate('Usuarios');
+      navigation.navigate('Area_user');
     } else {
       alert('Login ou senha incorretos');
     }
@@ -21,7 +22,7 @@ function LoginScreen({ navigation }) {
   return (
     <View style={styles.view}>
       <Text style={styles.textoNegrito}>Tela de Login</Text>
-      <main style={styles.main}>
+      <View style={styles.main}>
         <TextInput
           style={styles.input}
           placeholder="Usuário"
@@ -37,7 +38,7 @@ function LoginScreen({ navigation }) {
           secureTextEntry
         />
         <Button title="Entrar" onPress={Verificacao} />
-      </main>
+      </View>
 
     </View>
   );
@@ -49,6 +50,7 @@ export default function App() {
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Usuarios" component={Usuarios} />
+        <Stack.Screen name="Area_user" component={Area_user} />
       </Stack.Navigator>
     </NavigationContainer>
   );
