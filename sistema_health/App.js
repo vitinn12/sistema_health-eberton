@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import Usuarios from './comps/Usuarios'; // Certifique-se que o caminho está correto
 import Area_user from './comps/Area_user';
+import IMC from './comps/Imc';
 
 const Stack = createNativeStackNavigator();
 
@@ -51,6 +52,8 @@ export default function App() {
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Usuarios" component={Usuarios} />
         <Stack.Screen name="Area_user" component={Area_user} />
+        <Stack.Screen name="IMC" component={IMC} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
