@@ -1,6 +1,9 @@
 import react from 'react';
 import { View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import {imc} from './Imc';
+import {calorias} from './CalculadoraCalorias';
+
 
 
 export default function Area_user() {
@@ -11,17 +14,17 @@ export default function Area_user() {
     <Text style={styles.titulo}>Sistema Health</Text>
     <Text style={styles.subtitulo}>Usuário: admin</Text>
     <Text style={styles.botoesContainer}>
-        <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('Pagina1')}> {/* precisa mudar o nome da página aqui */}
-            <Text style={styles.textoBotao}>Quadro 1</Text>
+        <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('imc')}> 
+            <Text style={styles.textoBotao}>Calcular IMC</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('Pagina2')}> {/* precisa mudar o nome da página aqui */}
-            <Text style={styles.textoBotao}>Quadro 2</Text>
+        <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('calorias')}>
+            <Text style={styles.textoBotao}>Calcular Calorias</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('Pagina3')}> {/* precisa mudar o nome da página aqui */}
-            <Text style={styles.textoBotao}>Quadro 3</Text>
+        <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('')}>
+            <Text style={styles.textoBotao}>Guia Nutricional</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('Pagina4')}> {/* precisa mudar o nome da página aqui */}
-            <Text style={styles.textoBotao}>Quadro 4</Text>
+        <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('')}>
+            <Text style={styles.textoBotao}>Meditação</Text>
         </TouchableOpacity>
     </Text>
    </View>
@@ -55,7 +58,7 @@ const styles = StyleSheet.create({
     color: '#444',
   },
   botoesContainer: {
-    width: '90%',
+    width: '40%',
     flexDirection: 'row',
     flexWrap: 'wrap',
     padding: 10,

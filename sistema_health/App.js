@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
-import Usuarios from './comps/Usuarios'; // Certifique-se que o caminho está correto
 import Area_user from './comps/Area_user';
 import IMC from './comps/Imc';
+import Calorias from './comps/CalculadoraCalorias';
 
 const Stack = createNativeStackNavigator();
 
@@ -50,9 +50,9 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Usuarios" component={Usuarios} />
         <Stack.Screen name="Area_user" component={Area_user} />
-        <Stack.Screen name="IMC" component={IMC} />
+        <Stack.Screen name="imc" component={IMC} />
+        <Stack.Screen name="CalculadoraCalorias" component={Calorias} />
 
       </Stack.Navigator>
     </NavigationContainer>
