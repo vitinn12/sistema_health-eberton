@@ -7,8 +7,8 @@ export default function IMC() {
   const [resultado, setResultado] = useState('');
 
   const calcularIMC = () => {
-    const pesoNum = parseFloat(peso);
-    const alturaNum = parseFloat(altura);
+    const pesoNum = parseFloat(peso.replace(',', '.'));
+    const alturaNum = parseFloat(altura.replace(',', '.'));
 
     if (!pesoNum || !alturaNum) {
       setResultado('Preencha os campos corretamente.');
@@ -30,36 +30,47 @@ export default function IMC() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titulo}>Calculadora de IMC</Text>
+      <View style={styles.card}>
+        <Text style={styles.titulo}>Calculadora de IMC</Text>
 
-      <TextInput
-        style={styles.input}
-        placeholder="Peso (kg)"
-        keyboardType="numeric"
-        value={peso}
-        onChangeText={setPeso}
-      />
+        <TextInput
+          style={styles.input}
+          placeholder="Peso (kg)"
+          keyboardType="numeric"
+          value={peso}
+          onChangeText={setPeso}
+        />
 
-      <TextInput
-        style={styles.input}
-        placeholder="Altura (m)"
-        keyboardType="numeric"
-        value={altura}
-        onChangeText={setAltura}
-      />
+        <TextInput
+          style={styles.input}
+          placeholder="Altura (m)"
+          keyboardType="numeric"
+          value={altura}
+          onChangeText={setAltura}
+        />
 
-      <Button title="Calcular" onPress={calcularIMC} />
+        <Button title="Calcular" onPress={calcularIMC} />
 
-      {resultado ? <Text style={styles.resultado}>{resultado}</Text> : null}
+        {resultado ? <Text style={styles.resultado}>{resultado}</Text> : null}
+      </View>
     </View>
+
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    marginTop: 30,
-    backgroundColor: '#fff',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100%',
+  },
+  card: {
+    width: '40%',
+    padding: 20,
+    backgroundColor: 'white',
+    borderRadius: 10,
   },
   titulo: {
     fontSize: 22,

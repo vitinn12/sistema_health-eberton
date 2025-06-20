@@ -25,47 +25,62 @@ export default function CalorieCalculator() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Calorias</Text>
+      <View style={styles.card}>
+        <Text style={styles.title}>Calorias</Text>
 
-      <TextInput
-        style={styles.input}
-        placeholder="Idade"
-        keyboardType="numeric"
-        value={age}
-        onChangeText={setAge}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Peso (kg)"
-        keyboardType="numeric"
-        value={weight}
-        onChangeText={setWeight}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Altura (cm)"
-        keyboardType="numeric"
-        value={height}
-        onChangeText={setHeight}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Gênero (masculino/feminino)"
-        value={gender}
-        onChangeText={setGender}
-      />
+        <TextInput
+          style={styles.input}
+          placeholder="Idade"
+          keyboardType="numeric"
+          value={age}
+          onChangeText={setAge}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Peso (kg)"
+          keyboardType="numeric"
+          value={weight}
+          onChangeText={setWeight}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Altura (cm)"
+          keyboardType="numeric"
+          value={height}
+          onChangeText={setHeight}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Gênero (masculino/feminino)"
+          value={gender}
+          onChangeText={setGender}
+        />
 
-      <Button title="Calcular" onPress={calculateCalories} />
+        <Button title="Calcular" onPress={calculateCalories} />
 
-      {result && (
-        <Text style={styles.result}>Calórico diários: {result} kcal</Text>
-      )}
+        {result && (
+          <Text style={styles.result}>Calórico diários: {result} kcal</Text>
+        )}
+      </View>
+
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { padding: 20 },
+  container: {
+    padding: 20,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100%',
+  },
+  card: {
+    width: '40%',
+    padding: 20,
+    backgroundColor: 'white',
+    borderRadius: 10,
+  },
   title: { fontSize: 22, fontWeight: 'bold', marginBottom: 20 },
   input: {
     borderWidth: 1, borderColor: '#ccc', marginBottom: 10, padding: 8, borderRadius: 5

@@ -4,11 +4,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import Area_user from './comps/Area_user';
 import IMC from './comps/Imc';
-import Calorias from './comps/CalculadoraCalorias';
+import CalculadoraCalorias from './comps/CalculadoraCalorias';
 
 const Stack = createNativeStackNavigator();
 
-function LoginScreen({ navigation }) {
+function Login({ navigation }) {
   const [login, setLogin] = useState('');
   const [senha, setSenha] = useState('');
 
@@ -22,8 +22,8 @@ function LoginScreen({ navigation }) {
 
   return (
     <View style={styles.view}>
-      <Text style={styles.textoNegrito}>Tela de Login</Text>
       <View style={styles.main}>
+        <Text style={styles.textoNegrito}>Tela de Login</Text>
         <TextInput
           style={styles.input}
           placeholder="Usuário"
@@ -49,11 +49,10 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Area_user" component={Area_user} />
         <Stack.Screen name="imc" component={IMC} />
-        <Stack.Screen name="CalculadoraCalorias" component={Calorias} />
-
+        <Stack.Screen name="CalculadoraCalorias" component={CalculadoraCalorias} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -69,13 +68,15 @@ const styles = StyleSheet.create({
     gap: 5, 
   },
   main: {
+    width: '25%',
+    height: '300px',
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
     display: 'flex',
     flexDirection: 'column',
     gap: 10,
-    backgroundColor : '#f0f0f0',
+    backgroundColor : 'white',
   },
   input: {
     height: 40,

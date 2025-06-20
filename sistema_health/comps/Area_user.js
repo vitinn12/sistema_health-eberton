@@ -1,33 +1,34 @@
 import react from 'react';
-import { View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import {imc} from './Imc';
-import {calorias} from './CalculadoraCalorias';
-
 
 
 export default function Area_user() {
   const navigation = useNavigation();
 
   return (
-   <View style={styles.container}>
-    <Text style={styles.titulo}>Sistema Health</Text>
-    <Text style={styles.subtitulo}>Usuário: admin</Text>
-    <Text style={styles.botoesContainer}>
-        <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('imc')}> 
+    <View style={styles.container}>
+      <Text style={styles.card}>
+        <Text style={styles.titulo}>Sistema Health</Text>
+        <Text style={styles.subtitulo}>Usuário: admin</Text>
+        <View style={styles.botoescard}>
+          <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('imc')}>
             <Text style={styles.textoBotao}>Calcular IMC</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('calorias')}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('CalculadoraCalorias')}>
             <Text style={styles.textoBotao}>Calcular Calorias</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('')}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('')}>
             <Text style={styles.textoBotao}>Guia Nutricional</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('')}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('')}>
             <Text style={styles.textoBotao}>Meditação</Text>
-        </TouchableOpacity>
-    </Text>
-   </View>
+          </TouchableOpacity>
+        </View>
+
+
+      </Text>
+    </View>
   );
 }
 
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 60,
     alignItems: 'center',
-    backgroundColor: '#fff',
+
   },
   titulo: {
     fontSize: 28,
@@ -57,11 +58,24 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     color: '#444',
   },
-  botoesContainer: {
-    width: '40%',
+  card: {
+    width: '60%',
+    height: 'auto',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    padding: 10,
+    justifyContent: 'space-between',
+    backgroundColor: 'white',
+    borderRadius: 10,
+
+  },
+  botoescard: {
+    width: '100%',
+    display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    padding: 10,
     justifyContent: 'space-between',
   },
   botao: {
